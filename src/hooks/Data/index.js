@@ -4,15 +4,11 @@ import { initializeDatabase } from "../../database/initializeDatabase";
 
 const DataContext = createContext({});
 
-export function DataProvider({children}) {
-    const [data, setData] = useState(false);
-    return (
-    <DataContext.Provider value={{data}}>
-        <SQLiteProvider databaseName="data.db" onInit={initializeDatabase}>
-            {children}
-        </SQLiteProvider>
-    </DataContext.Provider>
-    );
+export function DataProvider({ children }) {
+    const [data, setData] = useState([false]);
+    return <DataContext.Provider value={{ data }}>
+        <SQLiteProvider databaseName="data.db" onInit={initializeDatabase}>{children}</SQLiteProvider>
+        </DataContext.Provider>
 }
 
 export function useData() {

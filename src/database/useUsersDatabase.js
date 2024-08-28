@@ -1,9 +1,9 @@
 import { useSQLiteContext } from "expo-sqlite";
 
-export function useUsersDatabase(){
+export function useUsersDatabase() {
     const database = useSQLiteContext();
 
-    async function authUser({email, password}) {
+    async function authUser({ email, password }) {
         console.log("authUser email: ", email, " - password: ", password);
         try {
           const result = await database.getFirstAsync(`
