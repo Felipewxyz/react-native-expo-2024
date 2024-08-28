@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useUsersDatabase } from "../../database/useUsersDatabase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ActivityIndicator, Text, View } from "react-native";
 
 const AuthContext = createContext({});
 
@@ -19,6 +21,31 @@ export function AuthProvider({ children }) {
 
   const { authUser } = useUsersDatabase();
 
+  useEffect(() => {
+    const loadStoragedData = async () => {
+      const storagedUser = await AsyncStorage.getItem("@payment:user");
+
+      if (storagedUser) {
+        setUser({
+          autenticated: true,
+          user: JSON.parse(storagedUser),
+          role: JSON.parse(storagedUser).role,
+        });
+      } else {
+        setUser({
+          autenticated: false,
+          user: null,
+          role: null,
+        });
+      }
+    };
+
+    loadStoragedData();
+  },[]);
+
+  useEffect(()=>{
+    console.log("AuthProvider: ", user);
+  },[user]);
 
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
@@ -33,34 +60,32 @@ export function AuthProvider({ children }) {
       throw new Error("Usuário ou senha inválidos");
     }
 
-    if (email === "super@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: true,
-        user: { id: 1, name: "Super Usuario", email },
-        role: Role.SUPER,
-      });
-    } else if (email === "adm@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: true,
-        user: { id: 2, name: "Administrador", email },
-        role: Role.ADM,
-      });
-    } else if (email === "user@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: true,
-        user: null,
-        role: null,
-      });
-    }
-  };
+    await AsyncStorage.setItem("@payment:user", JSON.stringify(response))
 
+    setUser({
+      autenticated: true,
+      user: user,
+      role: user.role,
+    })
+
+  };
   const signOut = async () => {
+    await AsyncStorage.removeItem("@bayment:user");
     setUser({});
   };
 
   useEffect(() => {
     console.log("AuthContext: ", user);
   }, [user]);
+
+  if (user?.autenticated === null) {
+    return (
+     <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+         <Text style={{ fontSize: 28, marginTop: 15 }}>Carregando Dados do Usuário</Text>
+         <ActivityIndicator size="small" color="#6A5ACD"/>
+     </View>
+     )
+ }
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
