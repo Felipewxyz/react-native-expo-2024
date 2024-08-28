@@ -43,14 +43,8 @@ export function AuthProvider({ children }) {
     loadStoragedData();
   },[]);
 
-  useEffect(()=>{
-    console.log("AuthProvider: ", user);
-  },[user]);
-
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
-    console.log(response);
-
     if (!response) {
       setUser({
         autenticated: false,
@@ -73,10 +67,6 @@ export function AuthProvider({ children }) {
     await AsyncStorage.removeItem("@bayment:user");
     setUser({});
   };
-
-  useEffect(() => {
-    console.log("AuthContext: ", user);
-  }, [user]);
 
   if (user?.autenticated === null) {
     return (
