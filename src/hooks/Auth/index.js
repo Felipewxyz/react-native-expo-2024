@@ -58,20 +58,22 @@ export function AuthProvider({ children }) {
 
     setUser({
       autenticated: true,
-      user: user,
-      role: user.role,
+      user: response,
+      role: response.role,
     })
 
   };
   const signOut = async () => {
-    await AsyncStorage.removeItem("@bayment:user");
+    await AsyncStorage.removeItem("@payment:user");
     setUser({});
   };
 
   if (user?.autenticated === null) {
     return (
      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-         <Text style={{ fontSize: 28, marginTop: 15 }}>Carregando Dados do Usuário</Text>
+         <Text style={{ fontSize: 28, marginTop: 15 }}>
+          Carregando Dados do Usuário
+         </Text>
          <ActivityIndicator size="small" color="#6A5ACD"/>
      </View>
      )
