@@ -27,7 +27,7 @@ export async function initializeDatabase(database) {
         updated_at DATE,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (user_cadastro) REFERENCES users(id)
-        )
+        );
 
         INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Super', 'super@email.com', 'A123456a!', 'SUPER');
         INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Admin', 'admin@email.com', 'A123456a!', 'ADMIN');
