@@ -18,15 +18,13 @@ function CustomDrawerContent(props) {
           marginTop: 20,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#f0f0f0",
+          backgroundColor: "#E6E6FA",
           paddingVertical: 10,
         }}
       >
         <Image
-          source={{
-            uri: "http://www.github.com/felipewxyz.png",
-          }}
-          style={{ width: 100, height: 100, borderRadius: 50, margin: 10 }}
+          source={require("../../../src/assets/images/logo.png")}
+          style={{ width: 130, height: 130 }}
         />
         <Text
           style={{ textAlign: "center", fontSize: 14, fontFamily: "regular" }}
@@ -44,7 +42,7 @@ function CustomDrawerContent(props) {
           alignItems: "center",
           height: 50,
           margin: 10,
-          backgroundColor: "#0000ff",
+          backgroundColor: "#4B0082",
           borderRadius: 5,
         }}
       >
@@ -61,10 +59,60 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: "Principal",
-            headerTitle: "Principal",
+            drawerLabel: "Casa",
+            headerTitle: "Casa",
             drawerIcon: () => (
               <Ionicons name="home-outline" size={20} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="reserve"
+          options={{
+            drawerLabel: "Reserva",
+            headerTitle: "Reserva",
+            drawerIcon: () => (
+              <Ionicons name="ticket-outline" size={24} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="profile"
+          options={{
+            drawerLabel: "Perfil",
+            headerTitle: "Perfil",
+            drawerIcon: () => (
+              <Ionicons name="person-outline" size={24} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="community"
+          options={{
+            drawerLabel: "Comunidade",
+            headerTitle: "Comunidade",
+            drawerIcon: () => (
+              <Ionicons name="chatbubbles-outline" size={24} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="planning"
+          options={{
+            drawerLabel: "Planejamento",
+            headerTitle: "Planejamento",
+            drawerIcon: () => (
+              <Ionicons name="calendar-outline" size={24} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="assistant"
+          options={{
+            drawerLabel: "Assistente",
+            headerTitle: "Assistente",
+            drawerIcon: () => (
+              <Ionicons name="map-outline" size={24} color="black" />
             ),
           }}
         />

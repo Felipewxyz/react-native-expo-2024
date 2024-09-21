@@ -148,7 +148,7 @@ export default function Payment() {
       id: 35,
       nome: "Earl Bassick",
     },
-  ]);
+  ]); 
   const [id, setId] = useState(1);
   const [data, setData] = useState(new Date());
   const [viewCalendar, setViewCalendar] = useState(false);
