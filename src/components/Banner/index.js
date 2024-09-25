@@ -18,19 +18,19 @@ export function Banner() {
         <View key="1" style={styles.page}>
           <Image
             source={require("../../../src/assets/images/banner1.png")}
-            style={styles.imagem}
+            style={styles.imagem1}
           />
         </View>
         <View key="2" style={styles.page}>
           <Image
             source={require("../../../src/assets/images/banner2.png")}
-            style={styles.imagem}
+            style={styles.imagem2}
           />
         </View>
         <View key="3" style={styles.page}>
           <Image
             source={require("../../../src/assets/images/banner3.png")}
-            style={styles.imagem}
+            style={styles.imagem3}
           />
         </View>
       </PagerView>
@@ -52,6 +52,7 @@ export function Banner() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#FFFF",
   },
   content: {
     marginTop: 10,
@@ -59,13 +60,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    height: "26%",
   },
   page: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#C0C0C0",
+    backgroundColor: "#FFFF",
     padding: 2,
-    borderRadius: 20,
+    width: "100%",
   },
   bulletContent: {
     flexDirection: "row",
@@ -94,17 +96,27 @@ const styles = StyleSheet.create({
     color: "#000000",
     padding: 10,
   },
-  imagem: {
-    width: "100%",
-    height: "100%",
+  imagem1: {
+    width: "99%",
+    height: "140%",
+    alignItems: "center",
+  },
+  imagem2: {
+    width: "99%",
+    height: "140%",
+    alignItems: "center",
+  },
+  imagem3: {
+    width: "99%",
+    height: "140%",
     alignItems: "center",
   },
   view: {
     width: "90%",
-    height: "20%",
-    backgroundColor: "#E6E6FA",
-    borderRadius: 10,
-    borderWidth: 2,
+    height: "25%",
+    //backgroundColor: "#E6E6FA",
+    borderRadius: 5,
+    borderWidth: 1,
     borderColor: "#4B0082",
     margin: 20,
   },
