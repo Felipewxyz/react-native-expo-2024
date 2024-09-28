@@ -5,8 +5,10 @@ import {
   BackHandler,
   Button,
   StyleSheet,
-  Text,
+  Image,
+  Text, 
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { useAuth } from "../hooks/Auth";
@@ -35,7 +37,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Aplicativo Pronto para Usar</Text>
+      <Image
+        source={require("../assets/images/logo.png")}
+        style={{ width: 180, height: 180 }}
+      />
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
         <TextInput
@@ -62,16 +67,31 @@ export default function App() {
         />
       </View>
 
-      <Button
-        style={styles.button}
-        title="Entrar"
-        onPress={handleEntrarSuper}
-      />
-      <Button title="Sobre" onPress={() => router.push("/about")} />
-      <Button
-        title="Sair do aplivativo"
-        onPress={() => BackHandler.exitApp()}
-      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleEntrarSuper}
+        >
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/about")}
+        >
+          <Text style={styles.buttonText}>Sobre</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => BackHandler.exitApp()}
+        >
+          <Text style={styles.buttonText}>Sair do Aplicativo</Text>
+        </TouchableOpacity>
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -83,7 +103,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    gap: 15,
+    gap: 5,
+    backgroundColor: "#E6E6FA",
   },
 
   title: {
@@ -102,7 +123,29 @@ const styles = StyleSheet.create({
     fontFamily: "regular",
     fontSize: 20,
   },
+  buttonContainer: {
+    alignItems: "center",
+    marginBottom: 20,
+    paddingVertical: 1,
+  },
   button: {
-    width: "100%",
+    backgroundColor: "#4B0082",
+    width: "30%",
+    borderRadius: 15,
+    padding: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button2: {
+    backgroundColor: "#4B0082",
+    width: "50%",
+    borderRadius: 15,
+    padding: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 14,
   },
 });

@@ -12,14 +12,15 @@ function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#E6E6FA"}}>
       <View
         style={{
           marginTop: 20,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#E6E6FA",
+          backgroundColor: "#F8F8FF",
           paddingVertical: 10,
+          borderRadius: 30,
         }}
       >
         <Image
@@ -54,7 +55,7 @@ function CustomDrawerContent(props) {
 
 const DrawerLayout = () => {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1, color: "white"}}>
       <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
           name="index"
