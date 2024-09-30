@@ -12,7 +12,7 @@ function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#E6E6FA"}}>
+    <View style={{ flex: 1, backgroundColor: "#E6E6FA" }}>
       <View
         style={{
           marginTop: 20,
@@ -34,7 +34,7 @@ function CustomDrawerContent(props) {
         </Text>
       </View>
       <DrawerContentScrollView {...props}>
-        <DrawerItemList {...props} />
+        <DrawerItemList {...props} itemStyle={{ fontFamily: "regular" }} />
       </DrawerContentScrollView>
       <TouchableOpacity
         onPress={() => signOut()}
@@ -47,7 +47,7 @@ function CustomDrawerContent(props) {
           borderRadius: 5,
         }}
       >
-        <Text style={{ color: "white" }}>Deslogar</Text>
+        <Text style={{ color: "white", fontFamily: "regular" }}>Deslogar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,91 +55,119 @@ function CustomDrawerContent(props) {
 
 const DrawerLayout = () => {
   return (
-    <GestureHandlerRootView style={{ flex: 1, color: "white"}}>
+    <GestureHandlerRootView style={{ flex: 1, color: "white" }}>
       <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: "Casa",
-            headerTitle: "Casa",
-            drawerIcon: () => (
-              <Ionicons name="home-outline" size={20} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="home-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Casa</Text>
+              </View>
             ),
+            headerTitle: "Casa",
           }}
         />
         <Drawer.Screen
           name="reserve"
           options={{
-            drawerLabel: "Reserva",
-            headerTitle: "Reserva",
-            drawerIcon: () => (
-              <Ionicons name="ticket-outline" size={24} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="ticket-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Reserva</Text>
+              </View>
             ),
+            headerTitle: "Reserva",
           }}
         />
         <Drawer.Screen
           name="profile"
           options={{
-            drawerLabel: "Perfil",
-            headerTitle: "Perfil",
-            drawerIcon: () => (
-              <Ionicons name="person-outline" size={24} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="person-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Perfil</Text>
+              </View>
             ),
+            headerTitle: "Perfil",
           }}
         />
         <Drawer.Screen
           name="community"
           options={{
-            drawerLabel: "Comunidade",
-            headerTitle: "Comunidade",
-            drawerIcon: () => (
-              <Ionicons name="chatbubbles-outline" size={24} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="chatbubbles-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Comunidade</Text>
+              </View>
             ),
+            headerTitle: "Comunidade",
           }}
         />
         <Drawer.Screen
           name="planning"
           options={{
-            drawerLabel: "Planejamento",
-            headerTitle: "Planejamento",
-            drawerIcon: () => (
-              <Ionicons name="calendar-outline" size={24} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="calendar-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Planejamento</Text>
+              </View>
             ),
+            headerTitle: "Planejamento",
           }}
         />
         <Drawer.Screen
           name="assistant"
           options={{
-            drawerLabel: "Assistente",
-            headerTitle: "Assistente",
-            drawerIcon: () => (
-              <Ionicons name="map-outline" size={24} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="map-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Assistente</Text>
+              </View>
             ),
+            headerTitle: "Assistente",
           }}
         />
         <Drawer.Screen
           name="list"
           options={{
-            drawerLabel: "Listagem",
-            headerTitle: "Listagem",
-            drawerIcon: () => (
-              <Ionicons name="list-outline" size={20} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="list-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Listagem</Text>
+              </View>
             ),
+            headerTitle: "Listagem",
           }}
         />
         <Drawer.Screen
           name="payment"
           options={{
-            drawerLabel: "Pagamentos",
-            headerTitle: "Pagamentos",
-            drawerIcon: () => (
-              <Ionicons name="diamond-outline" size={20} color="black" />
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="diamond-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Pagamentos</Text>
+              </View>
             ),
+            headerTitle: "Pagamentos",
           }}
         />
       </Drawer>
     </GestureHandlerRootView>
   );
+};
+
+const styles = {
+  drawerItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  drawerText: {
+    fontFamily: "regular",
+    marginLeft: 10,
+    fontSize: 14,
+  },
 };
 
 export default function Layout() {

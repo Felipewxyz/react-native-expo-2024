@@ -3,10 +3,9 @@ import { router } from "expo-router";
 import {
   Alert,
   BackHandler,
-  Button,
   StyleSheet,
   Image,
-  Text, 
+  Text,
   TextInput,
   TouchableOpacity,
   View,
@@ -21,7 +20,7 @@ export default function App() {
   const [password, setPassword] = useState("A123456a!");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
 
-  const tooglePasswordVisibility = () => {
+  const togglePasswordVisibility = () => {
     setPasswordVisibility(!passwordVisibility);
   };
 
@@ -39,58 +38,45 @@ export default function App() {
     <View style={styles.container}>
       <Image
         source={require("../assets/images/logo.png")}
-        style={{ width: 180, height: 180 }}
+        style={styles.logo}
       />
-      <View style={styles.inputbox}>
-        <Ionicons name="mail-open-outline" size={20} color="black" />
+      <View style={styles.inputContainer}>
+        <Ionicons name="mail-open-outline" size={20} color="gray" />
         <TextInput
-          style={styles.emailinput}
+          style={styles.input}
           placeholder="E-mail"
           value={email}
           onChangeText={setEmail}
+          placeholderTextColor="gray"
         />
       </View>
-      <View style={styles.inputbox}>
-        <Ionicons name="lock-closed-outline" size={20} color="black" />
+      <View style={styles.inputContainer}>
+        <Ionicons name="lock-closed-outline" size={20} color="gray" />
         <TextInput
-          style={styles.emailinput}
+          style={styles.input}
           placeholder="Senha"
           value={password}
           onChangeText={setPassword}
-          secureTextEntry={passwordVisibility}
+          secureTextEntry={!passwordVisibility}
+          placeholderTextColor="gray"
         />
         <Ionicons
           name={passwordVisibility ? "eye-off-outline" : "eye-outline"}
           size={20}
-          color="black"
-          onPress={tooglePasswordVisibility}
+          color="gray"
+          onPress={togglePasswordVisibility}
         />
       </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleEntrarSuper}
-        >
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => router.push("/about")}
-        >
-          <Text style={styles.buttonText}>Sobre</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button2}
-          onPress={() => BackHandler.exitApp()}
-        >
-          <Text style={styles.buttonText}>Sair do Aplicativo</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.button} onPress={handleEntrarSuper}>
+        <Text style={styles.buttonText}>Entrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => router.push("/about")}>
+        <Text style={styles.buttonText}>Sobre</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => BackHandler.exitApp()}>
+        <Text style={styles.buttonText}>Sair</Text>
+      </TouchableOpacity>
 
       <StatusBar style="auto" />
     </View>
@@ -100,52 +86,46 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 5,
     backgroundColor: "#E6E6FA",
+    justifyContent: "center",
+    paddingHorizontal: 20,
   },
-
-  title: {
-    fontFamily: "regular",
-    fontSize: 20,
+  logo: {
+    width: 150,
+    height: 150,
+    alignSelf: "center",
+    marginBottom: 40,
   },
-  inputbox: {
+  inputContainer: {
     flexDirection: "row",
-    gap: 10,
-    marginHorizontal: 40,
-    marginVertical: 10,
     alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 12,
+    marginBottom: 15,
+    borderWidth: 1,
+    borderColor: "#DDDDDD",
   },
-  emailinput: {
+  input: {
     flex: 1,
-    fontFamily: "regular",
-    fontSize: 20,
-  },
-  buttonContainer: {
-    alignItems: "center",
-    marginBottom: 20,
-    paddingVertical: 1,
+    fontSize: 16, 
+    fontFamily: "regular", 
+    color: "#333333",
+    marginLeft: 10,
   },
   button: {
     backgroundColor: "#4B0082",
-    width: "30%",
-    borderRadius: 15,
-    padding: 8,
+    borderRadius: 10,
+    paddingVertical: 12,
     alignItems: "center",
-    justifyContent: "center",
-  },
-  button2: {
-    backgroundColor: "#4B0082",
-    width: "50%",
-    borderRadius: 15,
-    padding: 8,
-    alignItems: "center",
-    justifyContent: "center",
+    marginBottom: 15, 
   },
   buttonText: {
     color: "#FFFFFF",
     fontSize: 14,
+    fontFamily: "regular",
   },
 });
+
+
