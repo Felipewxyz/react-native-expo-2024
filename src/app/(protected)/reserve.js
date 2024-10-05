@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-// Dados fictícios de hotéis
 const hotelsData = {
   "São Paulo": {
     Econômico: [
@@ -63,6 +62,231 @@ const hotelsData = {
           "Av. Royal Palm Plaza, 277 G - Jardim Nova California, Campinas - SP, 13051-092",
         avaliacao: 9.0,
         imagem: require("../../assets/images/plaza.jpg"),
+      },
+    ],
+  },
+  Santos: {
+    Econômico: [
+      {
+        nome: "Ibis Santos Gonzaga",
+        telefone: "(13) 2127-1660",
+        endereco:
+          "Av. Vicente de Carvalho, 50 - Boqueirão, Santos - SP, 11045-500, Brasil",
+        avaliacao: 8.2,
+        imagem: require("../../assets/images/santos.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Parque Balneário Hotel",
+        telefone: "(13) 799-9925",
+        endereco:
+          "Av. Ana Costa, 555 - Gonzaga, Santos - SP, 11060-003, Brasil",
+        avaliacao: 8.8,
+        imagem: require("../../assets/images/balneario.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Sheraton Santos Hotel",
+        telefone: "(13) 3278-1400",
+        endereco:
+          " Al. Armênio Mendes, 70 - Aparecida, Santos - SP, 11035-260, Brasil",
+        avaliacao: 9.1,
+        imagem: require("../../assets/images/sheraton.jpg"),
+      },
+    ],
+  },
+  "São José dos Campos": {
+    Econômico: [
+      {
+        nome: "Ibis São José dos Campos Dutra",
+        telefone: "(12) 2139-5950",
+        endereco:
+          " Av. Cidade Jardim, 101 - Jardim Satélite, São José dos Campos - SP, 12231-675, Brasil",
+        avaliacao: 7.9,
+        imagem: require("../../assets/images/ibissjc.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Novotel São José dos Campos",
+        telefone: "(12) 4009-7800",
+        endereco:
+          "Av. Dr. Nélson d'Ávila, 2200 - Vila das Acacias, São José dos Campos - SP, 12245-031, Brasil",
+        avaliacao: 8.5,
+        imagem: require("../../assets/images/novotel.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Golden Tulip São José dos Campos",
+        telefone: "(12) 3131-4100",
+        endereco:
+          "Av. São João, 2200 - Jardim das Colinas, São José dos Campos - SP, 12242-000, Brasil",
+        avaliacao: 9.0,
+        imagem: require("../../assets/images/goldensjc.jpg"),
+      },
+    ],
+  },
+  "Ribeirão Preto": {
+    Econômico: [
+      {
+        nome: "Ibis Ribeirao Preto Shopping",
+        telefone: "(16) 2101-2950",
+        endereco:
+          " Av. Braz Olaia Acosta, 691 - Torre A - Jardim California, Ribeirão Preto - SP, 14026-040, Brasil",
+        avaliacao: 8.1,
+        imagem: require("../../assets/images/ibisrp.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Stream Palace Hotel",
+        telefone: "(16) 3977-3939",
+        endereco:
+          "R. Gen. Osório, 850 - Centro, Ribeirão Preto - SP, 14010-000, Brasil",
+        avaliacao: 8.7,
+        imagem: require("../../assets/images/palace.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Golden Tulip São José dos Campos",
+        telefone: "(16) 3516-6000",
+        endereco:
+          "Av. Maurílio Biagi, 1577 - Ribeirânia, Ribeirão Preto - SP, 14096-075, Brasil",
+        avaliacao: 9.2,
+        imagem: require("../../assets/images/mont.jpg"),
+      },
+    ],
+  },
+  "São José do Rio Preto": {
+    Econômico: [
+      {
+        nome: "ibis budget São José do Rio Preto",
+        telefone: "(17) 3600-1500",
+        endereco:
+          "Av. Marginal Comendador Vicente Filizola, 5860 - Jardim Alto Rio Preto, São José do Rio Preto - SP, 15020-350, Brasil",
+        avaliacao: 8.1,
+        imagem: require("../../assets/images/ibissrp.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Hotel Nacional Inn São José do Rio Preto",
+        telefone: "(17) 2136-7400",
+        endereco:
+          "R. Prof. Carlos Ibanez, 35 - Vila Diniz, São José do Rio Preto - SP, 15070-655, Brasil",
+        avaliacao: 8.6,
+        imagem: require("../../assets/images/nacional.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Hyatt Place São José do Rio Preto",
+        telefone: "(17) 3228-1234",
+        endereco:
+          "Avenida Juscelino Kubitschek De Oliveira, 5000 - C - Bairro Iguatemi, São José do Rio Preto - SP, 15093-340, Brasil",
+        avaliacao: 9.0,
+        imagem: require("../../assets/images/hyatt.jpg"),
+      },
+    ],
+  },
+  "Sorocaba": {
+    Econômico: [
+      {
+        nome: "Ibis Sorocaba",
+        telefone: "(15) 2101-6300",
+        endereco:
+          "Rua Sra Maria Aparecida Pessoti, Milego 290, Sorocaba - SP, 18048-140, Brasil",
+        avaliacao: 8.2,
+        imagem: require("../../assets/images/ibisorocaba.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Dan Inn Sorocaba",
+        telefone: "(15) 2143-0283",
+        endereco:
+          " Av. Dr. Afonso Vergueiro, 1850 - Vila Casanova, Sorocaba - SP, 18040-000, Brasil",
+        avaliacao: 8.5,
+        imagem: require("../../assets/images/dan.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Novotel Sorocaba",
+        telefone: "(15) 3500-1850",
+        endereco:
+          "Avenida Professora Izoraida Marques Peres, 770 - Parque Campolim, Sorocaba - SP, 18048-110, Brasil",
+        avaliacao: 9.0,
+        imagem: require("../../assets/images/novotels.jpg"),
+      },
+    ],
+  },
+  "Presidente Prudente": {
+    Econômico: [
+      {
+        nome: "Muchiutt Park Hotel",
+        telefone: "(18) 99782-2375",
+        endereco:
+          "Av. Cel. José Soares Marcondes, 3187 - Jardim Bongiovani, Pres. Prudente - SP, 19050-230, Brasil",
+        avaliacao: 8.0,
+        imagem: require("../../assets/images/hprudente.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Hotel Rota do Pantanal",
+        telefone: "(18) 2101-4500",
+        endereco:
+          "Av. Ver. Aurelino Coutinho, 2063 - Jardim Alto da Boa Vista, Pres. Prudente - SP, 19053-360, Brasil",
+        avaliacao: 8.6,
+        imagem: require("../../assets/images/pantanal.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Aruá Hotel",
+        telefone: "(18) 2101-4666",
+        endereco:
+          "Av. Cel. José Soares Marcondes, 1111 - Centro, Pres. Prudente - SP, 19010-080, Brasil",
+        avaliacao: 8.8,
+        imagem: require("../../assets/images/aruah.jpg"),
+      },
+    ],
+  },
+  //terminar
+  "Bauru": {
+    Econômico: [
+      {
+        nome: "Muchiutt Park Hotel",
+        telefone: "(18) 99782-2375",
+        endereco:
+          "Av. Cel. José Soares Marcondes, 3187 - Jardim Bongiovani, Pres. Prudente - SP, 19050-230, Brasil",
+        avaliacao: 8.0,
+        imagem: require("../../assets/images/hprudente.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Hotel Rota do Pantanal",
+        telefone: "(18) 2101-4500",
+        endereco:
+          "Av. Ver. Aurelino Coutinho, 2063 - Jardim Alto da Boa Vista, Pres. Prudente - SP, 19053-360, Brasil",
+        avaliacao: 8.6,
+        imagem: require("../../assets/images/pantanal.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Aruá Hotel",
+        telefone: "(18) 2101-4666",
+        endereco:
+          "Av. Cel. José Soares Marcondes, 1111 - Centro, Pres. Prudente - SP, 19010-080, Brasil",
+        avaliacao: 8.8,
+        imagem: require("../../assets/images/aruah.jpg"),
       },
     ],
   },
