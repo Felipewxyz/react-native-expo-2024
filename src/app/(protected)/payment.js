@@ -14,6 +14,8 @@ import {
 } from "react-native";
 import { z } from "zod";
 import { useAuth } from "../../hooks/Auth/index";
+import { usePaymentsDatabase } from "../../database/usePaymentsDatabase";
+import { useUsersDatabase } from "../../database/useUsersDatabase";
 
 const paymentSchema = z.object({
   valor_pago: z.number().gt(0),
@@ -25,154 +27,15 @@ const paymentSchema = z.object({
 
 export default function Payment() {
   const [valor, setValor] = useState("0,00");
-  const [sugestoes, setSugestoes] = useState([
-    {
-      id: 1,
-      nome: "Ximenes Cheves",
-    },
-    {
-      id: 2,
-      nome: "Saundra Pennuzzi",
-    },
-    {
-      id: 3,
-      nome: "Pepi Genthner",
-    },
-    {
-      id: 4,
-      nome: "Jay Gales",
-    },
-    {
-      id: 5,
-      nome: "Yettie Lawman",
-    },
-    {
-      id: 6,
-      nome: "Fletcher Beacon",
-    },
-    {
-      id: 7,
-      nome: "Karlan Raddin",
-    },
-    {
-      id: 8,
-      nome: "Vladamir Richards",
-    },
-    {
-      id: 9,
-      nome: "Laurel Woodison",
-    },
-    {
-      id: 10,
-      nome: "Melloney Crichton",
-    },
-    {
-      id: 11,
-      nome: "Kristian Garwood",
-    },
-    {
-      id: 12,
-      nome: "Wilone Peetermann",
-    },
-    {
-      id: 13,
-      nome: "Elroy Hourican",
-    },
-    {
-      id: 14,
-      nome: "Dianemarie Herion",
-    },
-    {
-      id: 15,
-      nome: "Reggie Hovee",
-    },
-    {
-      id: 16,
-      nome: "Margery Oswell",
-    },
-    {
-      id: 17,
-      nome: "Wendall Kydd",
-    },
-    {
-      id: 18,
-      nome: "Happy Poland",
-    },
-    {
-      id: 19,
-      nome: "Linea Trillow",
-    },
-    {
-      id: 20,
-      nome: "Dulce Blount",
-    },
-    {
-      id: 21,
-      nome: "Roderich Pither",
-    },
-    {
-      id: 22,
-      nome: "Kerrill Allcroft",
-    },
-    {
-      id: 23,
-      nome: "Lewiss Kemsley",
-    },
-    {
-      id: 24,
-      nome: "Nikolai Whilde",
-    },
-    {
-      id: 25,
-      nome: "Sibyl Brokenbrow",
-    },
-    {
-      id: 26,
-      nome: "Dominic Larcher",
-    },
-    {
-      id: 27,
-      nome: "Miltie Shmyr",
-    },
-    {
-      id: 28,
-      nome: "Giselle Aysh",
-    },
-    {
-      id: 29,
-      nome: "Vanya Hendrickx",
-    },
-    {
-      id: 30,
-      nome: "Shaylah Redmain",
-    },
-    {
-      id: 31,
-      nome: "Edouard Chaff",
-    },
-    {
-      id: 32,
-      nome: "Christian Machan",
-    },
-    {
-      id: 33,
-      nome: "Craggie Keiley",
-    },
-    {
-      id: 34,
-      nome: "Lilyan Samwell",
-    },
-    {
-      id: 35,
-      nome: "Earl Bassick",
-    },
-  ]);
+  const [sugestoes, setSugestoes] = useState([]);
   const [id, setId] = useState(1);
   const [data, setData] = useState(new Date());
   const [viewCalendar, setViewCalendar] = useState(false);
   const [observacao, setObservacao] = useState("");
   const valueRef = useRef();
   const { user } = useAuth();
+  const { createPayment } = usePaymentsDatabase();
+  const { getAllUsers } = useUsersDatabase();
 
   const handleCalendar = (event, selectedDate) => {
     setViewCalendar(false);
@@ -180,7 +43,16 @@ export default function Payment() {
   };
 
   useEffect(() => {
-    valueRef?.current?.focus();
+    (async () => {
+      valueRef?.current?.focus();
+      try {
+        const users = await getAllUsers();
+        setSugestoes(users);
+        setId(users[0].id);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   const handleChangeValor = (value) => {
@@ -225,7 +97,12 @@ export default function Payment() {
 
     try {
       const result = await paymentSchema.parseAsync(payment);
-      console.log(result);
+      const { insertedID } = await createPayment(payment);
+      console.log(insertedID);
+      setId(sugestoes[0].id);
+      setData(new Date());
+      setObservacao("");
+      valueRef?.current?.focus();
     } catch (error) {
       console.log(error);
     }
