@@ -27,7 +27,6 @@ export default function App() {
   const handleEntrarSuper = async () => {
     try {
       await signIn({ email, password });
-      router.replace("/");
     } catch (error) {
       Alert.alert("Erro", error.message);
       console.log(error);
@@ -71,7 +70,7 @@ export default function App() {
       <TouchableOpacity style={styles.button} onPress={handleEntrarSuper}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/about")}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push("about")}>
         <Text style={styles.buttonText}>Sobre</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => BackHandler.exitApp()}>

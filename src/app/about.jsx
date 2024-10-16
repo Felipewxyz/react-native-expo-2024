@@ -23,14 +23,13 @@ export default function About() {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            router.replace("/");
+            router.back();
           }}
         >
           <Text style={styles.buttonText}>Voltar</Text>
         </TouchableOpacity>
       </View>
     </View>
-    //#006400
   );
 }
 
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     padding: 20,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   textBox: {
     backgroundColor: "#4B0082",
