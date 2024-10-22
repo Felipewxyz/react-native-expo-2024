@@ -70,15 +70,15 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="reserve"
+          name="hotel"
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="ticket-outline" size={22} color="black" />
-                <Text style={styles.drawerText}>Reserva</Text>
+                <Ionicons name="bed-outline" size={22} color="black" />
+                <Text style={styles.drawerText}>Hoteis</Text>
               </View>
             ),
-            headerTitle: "Reserva",
+            headerTitle: "Hoteis",
           }}
         />
         <Drawer.Screen

@@ -470,6 +470,7 @@ const styles = StyleSheet.create({
   sugestoesTitulo: {
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "regular",
     color: "#4B0082",
   },
   tituloContainer: {
@@ -477,4 +478,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  text: {
+    fontFamily: "regular",
+    color: "#000",
+    fontSize: 16,
+  },
 });
+

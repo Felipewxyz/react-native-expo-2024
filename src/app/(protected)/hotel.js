@@ -35,7 +35,7 @@ const hotelsData = {
       },
     ],
   },
-  Campinas: {
+  "Campinas": {
     Econômico: [
       {
         nome: "Ibis Campinas",
@@ -65,7 +65,7 @@ const hotelsData = {
       },
     ],
   },
-  Santos: {
+  "Santos": {
     Econômico: [
       {
         nome: "Ibis Santos Gonzaga",
@@ -257,36 +257,102 @@ const hotelsData = {
       },
     ],
   },
-  //terminar
+
   "Bauru": {
     Econômico: [
       {
-        nome: "Muchiutt Park Hotel",
-        telefone: "(18) 99782-2375",
+        nome: "Ibis Bauru",
+        telefone: "(14) 17011-030",
         endereco:
-          "Av. Cel. José Soares Marcondes, 3187 - Jardim Bongiovani, Pres. Prudente - SP, 19050-230, Brasil",
+          " R. Antônio dos Reis, 50 - Quadra 3 - Vila Brunhari, Bauru - SP",
         avaliacao: 8.0,
-        imagem: require("../../assets/images/hprudente.jpg"),
+        imagem: require("../../assets/images/ibisbauru.webp"),
       },
     ],
     Mediano: [
       {
-        nome: "Hotel Rota do Pantanal",
-        telefone: "(18) 2101-4500",
+        nome: "Blue Tree Towers Bauru",
+        telefone: "(14) 3235-8700",
         endereco:
-          "Av. Ver. Aurelino Coutinho, 2063 - Jardim Alto da Boa Vista, Pres. Prudente - SP, 19053-360, Brasil",
-        avaliacao: 8.6,
-        imagem: require("../../assets/images/pantanal.jpg"),
+          "R. Júlio de Mesquita Filho, 10-36 - Jardim Panorama, Bauru - SP",
+        avaliacao: 8.7,
+        imagem: require("../../assets/images/baurutower.jpg"),
       },
     ],
     Luxuoso: [
       {
-        nome: "Aruá Hotel",
-        telefone: "(18) 2101-4666",
+        nome: "Vitória Régia Hotel",
+        telefone: "(14) 3235-8955",
         endereco:
-          "Av. Cel. José Soares Marcondes, 1111 - Centro, Pres. Prudente - SP, 19010-080, Brasil",
-        avaliacao: 8.8,
-        imagem: require("../../assets/images/aruah.jpg"),
+          "Av. Nações Unidas, 21 81 - Jardim Panorama, Bauru - SP",
+        avaliacao: 9.0,
+        imagem: require("../../assets/images/vrhotel.webp"),
+      },
+    ],
+  },
+
+  "Araçatuba": {
+    Econômico: [
+      {
+        nome: "Ibis Araçatuba",
+        telefone: "(18) 2103-5300",
+        endereco:
+          "Av. Brasília, 2500 - Jardim Nova Yorque, Araçatuba - SP",
+        avaliacao: 8.1,
+        imagem: require("../../assets/images/ibisaracatuba.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Pekin Palace Hotel",
+        telefone: "(18) 98129-0734",
+        endereco:
+          "Av. Brasília, 1910 - Jardim Nova Yorque, Araçatuba - SP",
+        avaliacao: 8.5,
+        imagem: require("../../assets/images/pekinhotel.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Araçatuba Plaza Hotel",
+        telefone: "(18) 3607-6700",
+        endereco:
+          "R. Gen. Glicério, 233 - Centro, Araçatuba - SP",
+        avaliacao: 8.9,
+        imagem: require("../../assets/images/aracatubahotel.jpg"),
+      },
+    ],
+  },
+
+  "Piracicaba": {
+    Econômico: [
+      {
+        nome: "Ibis Budget Piracicaba",
+        telefone: "(19) 99982-0331",
+        endereco:
+          "Av. Armando Dedini, 155 - Vila Rezende, Piracicaba - SP",
+        avaliacao: 8.0,
+        imagem: require("../../assets/images/ibispiracicaba.jpg"),
+      },
+    ],
+    Mediano: [
+      {
+        nome: "Antonio's Palace Hotel",
+        telefone: "(19) 3417-6000",
+        endereco:
+          "Av. Independência, 2805 - Cidade Alta, Piracicaba - SP",
+        avaliacao: 8.5,
+        imagem: require("../../assets/images/antoniohotel.jpg"),
+      },
+    ],
+    Luxuoso: [
+      {
+        nome: "Beira Rio Palace Hotel",
+        telefone: "(19) 3401-1000",
+        endereco:
+          "Rua Luiz de Queiroz, 51 - Centro, Piracicaba - SP",
+        avaliacao: 9.0,
+        imagem: require("../../assets/images/beirahotel.jpg"),
       },
     ],
   },
