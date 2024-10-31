@@ -118,18 +118,6 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="assistant"
-          options={{
-            drawerLabel: () => (
-              <View style={styles.drawerItem}>
-                <Ionicons name="map-outline" size={22} color="black" />
-                <Text style={styles.drawerText}>Assistente</Text>
-              </View>
-            ),
-            headerTitle: "Assistente",
-          }}
-        />
-        <Drawer.Screen
           name="list"
           options={{
             drawerLabel: () => (

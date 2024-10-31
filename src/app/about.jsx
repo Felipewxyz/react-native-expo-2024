@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
     padding: 20,
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
   },
   textBox: {
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginBottom: 20,
+    alignItems: "center",
   },
   title: {
     fontSize: 18,
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     color: "#FFFFFF",
     fontFamily: "regular",
+    textAlign: "center",
   },
   buttonContainer: {
     alignItems: "center",
