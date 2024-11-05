@@ -33,5 +33,16 @@ export function usePaymentsDatabase() {
       await statment.finalizeAsync();
     }
   }
-  return { createPayment };
+
+  async function getPayments() {
+    try {
+      const payments = await database.getAllAsync("SELECT p.*, u.nome FROM payments p, users u WHERE u.id = p.user_id");
+      return payments;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  return { createPayment, getPayments };
 }
