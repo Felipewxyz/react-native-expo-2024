@@ -62,7 +62,6 @@ export default function List() {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text>Pagamentos</Text>
       <View style={{ flex: 1 }}>
         <FlashList
           data={data}

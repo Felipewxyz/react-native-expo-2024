@@ -94,18 +94,6 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="community"
-          options={{
-            drawerLabel: () => (
-              <View style={styles.drawerItem}>
-                <Ionicons name="chatbubbles-outline" size={22} color="black" />
-                <Text style={styles.drawerText}>Comunidade</Text>
-              </View>
-            ),
-            headerTitle: "Comunidade",
-          }}
-        />
-        <Drawer.Screen
           name="planning"
           options={{
             drawerLabel: () => (

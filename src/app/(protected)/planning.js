@@ -39,10 +39,10 @@ const initialActivitiesData = {
       time: "09:00 - 11:00",
       completed: false,
     },
-    { id: "2", name: "Pão de Açúcar", time: "12:00 - 14:00", completed: false },
+    { id: "2", name: "Cidade da Criança", time: "12:00 - 14:00", completed: false },
     {
       id: "3",
-      name: "Praia de Copacabana",
+      name: "Balneário da Amizade",
       time: "15:00 - 17:00",
       completed: false,
     },
