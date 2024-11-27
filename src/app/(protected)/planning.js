@@ -4,7 +4,6 @@ import {
   View,
   FlatList,
   StyleSheet,
-  Button,
   ScrollView,
   TextInput,
   TouchableOpacity,
@@ -39,7 +38,12 @@ const initialActivitiesData = {
       time: "09:00 - 11:00",
       completed: false,
     },
-    { id: "2", name: "Cidade da Criança", time: "12:00 - 14:00", completed: false },
+    {
+      id: "2",
+      name: "Cidade da Criança",
+      time: "12:00 - 14:00",
+      completed: false,
+    },
     {
       id: "3",
       name: "Balneário da Amizade",
@@ -54,6 +58,16 @@ export default function List() {
   const [newCity, setNewCity] = useState("");
   const [newActivityName, setNewActivityName] = useState("");
   const [newActivityTime, setNewActivityTime] = useState("");
+  const [checklistItems, setChecklistItems] = useState([
+    { id: "1", name: "Passaporte", completed: false },
+    { id: "2", name: "Documentos Pessoais (RG e CNH)", completed: false },
+    { id: "3", name: "Roupas de frio", completed: false },
+    { id: "4", name: "Roupas de calor", completed: false },
+    { id: "5", name: "Produtos de higiene pessoal", completed: false },
+    { id: "6", name: "Medicamentos", completed: false },
+    { id: "7", name: "Carregadores e adaptadores", completed: false },
+  ]);
+  const [newChecklistItem, setNewChecklistItem] = useState("");
 
   const toggleCompletion = (city, activityId) => {
     setActivities((prevActivities) => {
@@ -108,6 +122,27 @@ export default function List() {
       (activity) => activity.id !== activityId
     );
     setActivities({ ...activities, [city]: updatedCityActivities });
+  };
+
+  const toggleChecklistItem = (itemId) => {
+    setChecklistItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
+
+  const addChecklistItem = () => {
+    if (!newChecklistItem.trim()) return;
+
+    const newItem = {
+      id: (checklistItems.length + 1).toString(),
+      name: newChecklistItem,
+      completed: false,
+    };
+
+    setChecklistItems([...checklistItems, newItem]);
+    setNewChecklistItem("");
   };
 
   return (
@@ -183,6 +218,41 @@ export default function List() {
           </TouchableOpacity>
         </View>
       ))}
+
+      <View style={styles.checklistContainer}>
+        <Text style={styles.checklistTitle}>Checklist de Viagem</Text>
+        {checklistItems.map((item) => (
+          <View key={item.id} style={styles.checklistItem}>
+            <TouchableOpacity onPress={() => toggleChecklistItem(item.id)}>
+              <Ionicons
+                name={item.completed ? "checkbox-outline" : "square-outline"}
+                size={24}
+                color="#4B0082"
+              />
+            </TouchableOpacity>
+            <Text
+              style={[
+                styles.checklistItemText,
+                item.completed && {
+                  textDecorationLine: "line-through",
+                  color: "#808080",
+                },
+              ]}
+            >
+              {item.name}
+            </Text>
+          </View>
+        ))}
+        <TextInput
+          style={styles.input}
+          placeholder="Novo item para o checklist"
+          value={newChecklistItem}
+          onChangeText={setNewChecklistItem}
+        />
+        <TouchableOpacity style={styles.addButton} onPress={addChecklistItem}>
+          <Text style={styles.addButtonText}>Adicionar Item</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.addCityContainer}>
         <TextInput
@@ -298,4 +368,33 @@ const styles = StyleSheet.create({
     borderTopColor: "#ddd",
     alignItems: "center",
   },
+  checklistContainer: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: "#f9f9f9",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+  checklistTitle: {
+    fontSize: 22,
+    fontWeight: "600",
+    color: "#4B0082",
+    marginBottom: 15,
+  },
+  checklistItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  checklistItemText: {
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+  },
+  
 });

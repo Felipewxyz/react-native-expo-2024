@@ -12,27 +12,7 @@ function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#E6E6FA" }}>
-      <View
-        style={{
-          marginTop: 20,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#F8F8FF",
-          paddingVertical: 10,
-          borderRadius: 30,
-        }}
-      >
-        <Image
-          source={require("../../../src/assets/images/logo.png")}
-          style={{ width: 130, height: 130 }}
-        />
-        <Text
-          style={{ textAlign: "center", fontSize: 14, fontFamily: "regular" }}
-        >
-          {user?.user?.nome}
-        </Text>
-      </View>
+    <View style={{ flex: 1, backgroundColor: "#4B0082" }}>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} itemStyle={{ fontFamily: "regular" }} />
       </DrawerContentScrollView>
@@ -43,11 +23,11 @@ function CustomDrawerContent(props) {
           alignItems: "center",
           height: 50,
           margin: 10,
-          backgroundColor: "#4B0082",
+          backgroundColor: "#E6E6FA",
           borderRadius: 5,
         }}
       >
-        <Text style={{ color: "white", fontFamily: "regular" }}>Deslogar</Text>
+        <Text style={{ color: "black", fontFamily: "regular" }}>Deslogar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -62,7 +42,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="home-outline" size={22} color="black" />
+                <Ionicons name="home-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Casa</Text>
               </View>
             ),
@@ -74,7 +54,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="bed-outline" size={22} color="black" />
+                <Ionicons name="bed-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Hoteis</Text>
               </View>
             ),
@@ -86,7 +66,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="person-outline" size={22} color="black" />
+                <Ionicons name="person-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Perfil</Text>
               </View>
             ),
@@ -98,7 +78,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="calendar-outline" size={22} color="black" />
+                <Ionicons name="calendar-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Planejamento</Text>
               </View>
             ),
@@ -110,11 +90,40 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="list-outline" size={22} color="black" />
+                <Ionicons name="list-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Listagem</Text>
               </View>
             ),
+            drawerItemStyle: { display: "none" }, // Oculta no Drawer
             headerTitle: "Listagem",
+          }}
+        />
+        <Drawer.Screen
+          name="minigame"
+          options={{
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons
+                  name="game-controller-outline"
+                  size={25}
+                  color="white"
+                />
+                <Text style={styles.drawerText}>Passa Tempo</Text>
+              </View>
+            ),
+            headerTitle: "MiniGame",
+          }}
+        />
+        <Drawer.Screen
+          name="daily"
+          options={{
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="book-outline" size={24} color="white" />
+                <Text style={styles.drawerText}>Diário</Text>
+              </View>
+            ),
+            headerTitle: "Diário",
           }}
         />
         <Drawer.Screen
@@ -122,10 +131,11 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: () => (
               <View style={styles.drawerItem}>
-                <Ionicons name="diamond-outline" size={22} color="black" />
+                <Ionicons name="diamond-outline" size={22} color="white" />
                 <Text style={styles.drawerText}>Pagamentos</Text>
               </View>
             ),
+            drawerItemStyle: { display: "none" }, // Oculta no Drawer
             headerTitle: "Pagamentos",
           }}
         />
@@ -143,6 +153,7 @@ const styles = {
     fontFamily: "regular",
     marginLeft: 10,
     fontSize: 14,
+    color: "white",
   },
 };
 
