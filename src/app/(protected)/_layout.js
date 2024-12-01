@@ -86,19 +86,6 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
-          name="list"
-          options={{
-            drawerLabel: () => (
-              <View style={styles.drawerItem}>
-                <Ionicons name="list-outline" size={22} color="white" />
-                <Text style={styles.drawerText}>Listagem</Text>
-              </View>
-            ),
-            drawerItemStyle: { display: "none" }, // Oculta no Drawer
-            headerTitle: "Listagem",
-          }}
-        />
-        <Drawer.Screen
           name="minigame"
           options={{
             drawerLabel: () => (
@@ -127,6 +114,19 @@ const DrawerLayout = () => {
           }}
         />
         <Drawer.Screen
+          name="list"
+          options={{
+            drawerLabel: () => (
+              <View style={styles.drawerItem}>
+                <Ionicons name="list-outline" size={22} color="white" />
+                <Text style={styles.drawerText}>Listagem</Text>
+              </View>
+            ),
+            //drawerItemStyle: { display: "none" }, // Oculta no Drawer
+            headerTitle: "Listagem",
+          }}
+        />
+        <Drawer.Screen
           name="payment"
           options={{
             drawerLabel: () => (
@@ -135,7 +135,7 @@ const DrawerLayout = () => {
                 <Text style={styles.drawerText}>Pagamentos</Text>
               </View>
             ),
-            drawerItemStyle: { display: "none" }, // Oculta no Drawer
+            //drawerItemStyle: { display: "none" }, // Oculta no Drawer
             headerTitle: "Pagamentos",
           }}
         />
